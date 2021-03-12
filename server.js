@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
     "user": "swoo328",
     "password": "progery68",
     "port": 3306,
-    "database": "wishes_db"
+    "database": "employee_tracker_db"
 });
 
 app.get("/" , (req,res)=>{
@@ -26,5 +26,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.listen(PORT, () => {
-    console.log("Server is listening ..... word ... http://localhost:" + PORT);
+    console.log("Server is listening!! http://localhost:" + PORT);
 });
