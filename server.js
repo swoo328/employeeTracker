@@ -18,8 +18,9 @@ app.get("/" , (req,res)=>{
 });
 
 connection.connect(() => {
-    console.log("connected at " + connection.threadId);
+    console.log("Connected");
 });
+
 
 //data parsing
 app.use(express.urlencoded({ extended: true }));
