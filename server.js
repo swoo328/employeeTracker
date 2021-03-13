@@ -171,7 +171,47 @@ const addDepartment = () => {
 };
 //add an employee to the table
 const addEmployee = () => {
+    inquirer.prompt([
+        {
+            name: "firstName",
+            message: "What is the employee's first name?",
+            type: "input"
+        },
+        {
+            name: "lastName",
+            message: "What is the employee's last name",
+            type: "input"
+        }
+    ]).then(res => {
+        let firstName = res.firstName;
+        let lastName = res.lastName;
+        connection.query("SELECT * FROM role", async (err, res) => {
+            if (err) throw err;
+            const roleChoices = res.map(({ id, title }) => ({
+                name: title,
+                value: id
+            }))
+            console.log(roleChoices);
+            const addRole = await inquirer.prompt([
+                {
+                    name: "role",
+                    type: "list",
+                    message: "Which role would you like to add?",
+                    choices: roleChoices
+                }
+            ])
+            connection.query("INSERT INTO employee SET?", {
+                first_name: firstName,
+                last_name: lastName,
+                role_id: addRole.role
+            }, function (err, res) {
+                if (err) throw err;
+                console.log("Employee is added");
+                startQuestions();
+            });
 
+        })
+    })
 };
 
 const updateEmployee = () => {
