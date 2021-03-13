@@ -63,7 +63,8 @@ const startQuestions = () => {
                     addDepartment();
                     break;
                 case "Update employee role":
-                    updateEmployee();
+                    updateEmployeeRole();
+                    break;
                 default:
                     connection.end();
                     console.log("Have a Nice Day");
@@ -213,9 +214,44 @@ const addEmployee = () => {
         })
     })
 };
-
-const updateEmployee = () => {
-
+//updating employee
+const updateEmployeeRole = () => {
+    connection.query("SELECT * FROM employee", async (err, res) => {
+        if (err) throw (err);
+        const lookEmployee = res.map(({ id, first_name, last_name }) => ({
+            name: first_name + " " + last_name,
+            value: id
+        }))
+        const updateEmployee = await inquirer.prompt([
+            {
+                type: "list",
+                name: "employee",
+                message: "Which employee do you want to update?",
+                choices: lookEmployee
+            }
+        ])
+        connection.query("SELECT * FROM role", async (err, res) => {
+            if (err) throw err;
+            const changeRole = res.map(({ id, title }) => ({
+                name: title,
+                value: id
+            }))
+            const swapRole = await inquirer.prompt([
+                {
+                    type: "list",
+                    name: "role",
+                    message: "Which role do you want to swap to?",
+                    choices: changeRole
+                }
+            ])
+            connection.query("UPDATE employee SET role_id = " + swapRole.role + " WHERE id = " + updateEmployee.employee + "",
+                function (err, res) {
+                    if (err) throw err;
+                    console.log("Employee Role Updated");
+                    startQuestions();
+                });
+        })
+    })
 }
 //data parsing
 app.use(express.urlencoded({ extended: true }));
