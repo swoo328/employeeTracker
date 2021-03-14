@@ -13,7 +13,13 @@ As an business owner I want to be able to view and mange the department
 * Update employee roles
 
 # Screenshot
-![]();
+![](screenshot1.PNG)
+![](screenshot2.PNG)
+![](screenshot3.PNG)
+![](screenshot4.PNG)
+![](screenshot5.PNG)
+![](screenshot6.PNG)
+
 
 # Github Repository 
 https://github.com/swoo328/employeeTracker
