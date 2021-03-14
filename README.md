@@ -11,18 +11,17 @@ As an business owner I want to be able to view and mange the department
 * View departments, roles, employees
 
 * Update employee roles
+* 
+# Github Repository 
+https://github.com/swoo328/employeeTracker
+
+# Screencastify
+https://drive.google.com/file/d/1xb_wP1-RZ2ydrZ60ZTmEfiZcjV31Rt3P/view
 
 # Screenshot
 ![](screenshot1.PNG)
 ![](screenshot2.PNG)
 ![](screenshot5.PNG)
 ![](screenshot6.PNG)
-
-
-# Github Repository 
-https://github.com/swoo328/employeeTracker
-
-# Screencastify
-https://drive.google.com/file/d/1xb_wP1-RZ2ydrZ60ZTmEfiZcjV31Rt3P/view
 
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
